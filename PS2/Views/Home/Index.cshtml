@@ -1,0 +1,73 @@
+﻿@model IEnumerable<PS2.Models.Order>
+
+@{
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div class="hero-container">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+            <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+            <div class="carousel-inner" role="listbox">
+
+                <!-- Slide 1 -->
+                <div class="carousel-item active" style="background: url(../Content/img/slide/slide-1.jpg);">
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2 class="animated fadeInDown"><span>Cafeteria</span> Table</h2>
+                            <p class="animated fadeInUp">El mejor lugar para pasar un buen rato, ya sea con tus amigos, compañeros de trabbajo, pareja o con gente nueva y agraabadabble que puuuedes conocer en este lugar.</p>
+                            <div>
+                                <a href="@Url.Action("Menu", "Home")" class="btn-menu animated fadeInUp scrollto">Menu</a>
+                                <a href="@Url.Action("Ordenar", "Home")" class="btn-book animated fadeInUp scrollto">Ordenar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item" style="background: url(../Content/img/slide/slide-2.jpg);">
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2 class="animated fadeInDown">Cafe natural</h2>
+                            <p class="animated fadeInUp">La mejor seleccion de granos de cafe para nuestros clientes. Disfruuta de un buen cafe todas las mañanas o a la hora que mas te guste tomar cafe, la eleccion es tuya.</p>
+                            <div>
+                                <a href="@Url.Action("Menu", "Home")" class="btn-menu animated fadeInUp scrollto">Menu</a>
+                                <a href="@Url.Action("Ordenar", "Home")" class="btn-book animated fadeInUp scrollto">Ordenar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item" style="background: url(../Content/img/slide/slide-3.jpg);">
+                    <div class="carousel-background"><img src="Content/img/slide/slide-3.jpg" alt=""></div>
+                    <div class="carousel-container">
+                        <div class="carousel-content">
+                            <h2 class="animated fadeInDown">Variedad en gustos</h2>
+                            <p class="animated fadeInUp">Preparamos una gran variedad de comida para todos los gustos. Por lo que no tendras problemas en escoger un platillo quuue sea de tu gusto, asi tambien tenemos gran variedad de jugos naturales y de sabores.</p>
+                            <div>
+                                <a href="@Url.Action("Menu", "Home")" class="btn-menu animated fadeInUp scrollto">Menu</a>
+                                <a href="@Url.Action("Ordenar", "Home")" class="btn-book animated fadeInUp scrollto">Ordenar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
+    </div>
+</section><!-- End Hero -->

@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="author" content="Creative Tim">
+    <title>Coffee Tble</title>
+    <!-- Favicon -->
+    <link rel="icon" href="~/Content/db/assets/img/brand/favicon.png" type="image/png">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <!-- Icons -->
+    <link rel="stylesheet" href="~/Content/db/assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/db/assets/vendor/fortaweso/fontawesome-free/css/all.min.css" type="text/css">
+    <!-- Page plugins -->
+    <!-- Argon CSS -->
+    <link rel="stylesheet" href="~/Content/db/assets/css/argon.css?v=1.2.0" type="text/css">
+    <link href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Sidenav -->
+    <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+        <div class="scrollbar-inner">
+            <!-- Brand -->
+            <div class="sidenav-header  align-items-center">
+                <div class="logo mr-auto">
+                    <h1 class="text-light"><a href="@Url.Action("Index", "Home")"><span>Coffee Table</span></a></h1>
+                </div>
+            </div>
+            <div class="navbar-inner">
+                <!-- Collapse -->
+                <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+                    <!-- Nav items -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="@Url.Action("Index", "Principal")">
+                                <i class="ni ni-shop text-primary"></i>
+                                <span class="nav-link-text">Principal</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Menus")">
+                                <i class="ni ni-archive-2 text-orange"></i>
+                                <span class="nav-link-text">Productos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Orders")">
+                                <i class="ni ni-bullet-list-67 text-primary"></i>
+                                <span class="nav-link-text">Pedidos</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Divider -->
+                    <hr class="my-3">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <nav class="navbar navbar-top navbar-expand navbar-dark bg-gradient-darker border-bottom">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="text-md-right">
+                        <!-- Navbar links -->
+                        <ul class="navbar-nav align-items-end ml-md-0 ">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="media align-items-end">
+                                        <span class="avatar avatar-sm rounded-circle">
+                                            <img alt="Image placeholder" src="~/Content/db/assets/img/theme/team-4.jpg">
+                                        </span>                                        
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu  dropdown-menu-right ">
+                                    <div class="dropdown-header noti-title">
+                                        <h6 class="text-overflow m-0">Welcome!</h6>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="ni ni-user-run"></i>
+                                        <span>Cerrar sesiómn</span>
+
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </nav>
+        <!-- Page content -->
+        @RenderBody()
+    </div>
+
+    <!-- Cierre de sesión-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">¿Desea cerrar sesión?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-sm btn-danger" type="button" data-dismiss="modal">Cancelar</button>
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <ul class="nav navbar-nav navbar-right">
+                            @*<li>
+                                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                </li>*@
+                            <li><a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-sm btn-primary">Cerrar sesión</a></li>
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Argon Scripts -->
+    <!-- Core -->
+    <script src="~/Content/db/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/db/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/db/assets/vendor/js-cookie/js.cookie.js"></script>
+    <script src="~/Content/db/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="~/Content/db/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <!-- Optional JS -->
+    <script src="~/Content/db/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="~/Content/db/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+    <!-- Argon JS -->
+    <script src="~/Content/db/assets/js/argon.js?v=1.2.0"></script>
+    <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

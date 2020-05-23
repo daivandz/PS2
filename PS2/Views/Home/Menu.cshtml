@@ -1,0 +1,34 @@
+﻿@model IEnumerable<PS2.Models.Menu>
+
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<img src="~/Content/img/clay.jpg" alt="" class="section-title" style="width: 100%; height: 600px;" />
+
+<div class="row justify-content-center">
+    <p>
+        <h2>Menu</h2>
+    </p>
+</div>
+
+<div class="row justify-content-center">
+    @foreach (var item in Model)
+    {
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card">
+                <img src="@Url.Action("getImage","Menus",new { id = item.id })" alt="" style="width:100%; height:250px;">
+                <h1>@item.Name</h1>
+                <p class="price">$@item.Price</p>
+                <p>@item.Description</p>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="row justify-content-center">
+    <a href="@Url.Action("Ordenar", "Home")" class="btn btn-lg btn-darker">
+        Ordenar
+    </a>
+</div>
